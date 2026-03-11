@@ -6,7 +6,7 @@ from openai import OpenAI
 
 # ââ Logging ââââ
 logging.basicConfig(
-    format="%(asctime)s | %(levelname)s | %(message)s",
+    format="%(asctime)s | %(levelname)s | %(message)s",h
     level=logging.INFO,
 )
 
@@ -60,13 +60,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         reply = response.choices[0].message.content
         history.append({"role": "assistant", "content": reply})
-        await update.messabot.pyge.reply_text(reply)
+        await update.message.reply_text(reply)
     except Exception as exc:
         logging.error("OpenAI error: %s", exc)
         await update.message.reply_text("â ï¸ Something went wrong. Please try again.")
 
 def main():
-    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     if not token:
         raise RuntimeError("TELEGRAM_BOT_TOKEN is not set!")
     if not os.environ.get("OPENAI_API_KEY"):
