@@ -6,7 +6,7 @@ from openai import OpenAI
 
 # ââ Logging ââââ
 logging.basicConfig(
-    format="%(asctime)s | %(levelname)s | %(message)s",h
+    format="%(asctime)s | %(levelname)s | %(message)s",
     level=logging.INFO,
 )
 
