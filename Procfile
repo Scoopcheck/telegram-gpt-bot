@@ -1,2 +1,1 @@
-python-telegram-bot==20.7
-openai==1.14.0
+worker: python bot.py
